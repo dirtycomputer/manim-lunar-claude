@@ -277,8 +277,8 @@ class NumerologyClassics(VoiceoverScene):
         rows = VGroup()
         for (rel, cat, pair, col), y in zip(rows_data, ys):
             a = cn(rel, size=27, color=PAPER).move_to([-4.6, y, 0])
-            arr = Arrow(LEFT * 0.3, RIGHT * 0.3, color=col, stroke_width=3,
-                        max_tip_length_to_length_ratio=0.35).move_to([-3.1, y, 0])
+            # 短箭头会被 manim 按长度缩成小点，这里改用文字箭头保证可读
+            arr = cn("→", size=30, color=col).move_to([-3.1, y, 0])
             b = cn(cat, size=30, color=col, font=CN_BOLD, weight=BOLD).move_to([-2.0, y, 0])
             c = cn(pair, size=28, color=col).move_to([1.2, y, 0])
             rows.add(VGroup(a, arr, b, c))
